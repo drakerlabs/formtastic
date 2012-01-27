@@ -1926,7 +1926,7 @@ module Formtastic #:nodoc:
           options = args.extract_options!
           options[:builder] ||= @@builder
           options[:html] ||= {}
-          @@builder.custom_namespace = options[:namespace].to_s
+          @@builder.custom_namespace = options.delete(:namespace).to_s
 
           singularizer = defined?(ActiveModel::Naming.singular) ? ActiveModel::Naming.method(:singular) : ActionController::RecordIdentifier.method(:singular_class_name)
 
